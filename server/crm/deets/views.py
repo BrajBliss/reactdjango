@@ -15,6 +15,10 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
 # Create your views here.
+
+def home(request):
+    return render(request, 'home.html', {})
+
 def read(request):
     response = supabase.table('crm').select("*").execute()
     messages.success(request, 'Read successful...')
