@@ -20,7 +20,7 @@ def home(request):
     return render(request, 'home.html', {})
 
 def read(request):
-    response = supabase.table('crm').select("*").execute()
+    response = supabase.table('crm').select("*").order('id').execute()
     messages.success(request, 'Read successful...')
     response_data = response.data
     return HttpResponse(response_data)
