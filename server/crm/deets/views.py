@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.validators import EmailValidator
 from django.core.exceptions import ValidationError
@@ -23,7 +23,7 @@ def read(request):
     response = supabase.table('crm').select("*").order('id').execute()
     messages.success(request, 'Read successful...')
     response_data = response.data
-    return HttpResponse(response_data)
+    return JsonResponse(response_data, safe=False)
 
 @csrf_exempt
 def add(request):
@@ -37,7 +37,7 @@ def add(request):
                 return HttpResponse('Invalid email...')
         response = supabase.table('crm').insert(data).execute()
         messages.success(request, 'Add successful...')
-        return HttpResponse(response)
+        return JsonResponse(response, safe=False)
     else:
         return HttpResponse('Invalid request method...')
 
@@ -53,7 +53,7 @@ def update(request, id):
                 return HttpResponse('Invalid email...')
         response = supabase.table('crm').update(data).eq('id', id).execute()
         messages.success(request, 'Update successful...')
-        return HttpResponse(response)
+        return JsonResponse(response, safe=False)
     else:
         return HttpResponse('Invalid request method...')
 
@@ -62,6 +62,6 @@ def delete(request, id):
     if request.method == 'DELETE':
         response = supabase.table('crm').delete().eq('id', id).execute()
         messages.success(request, 'Delete successful...')
-        return HttpResponse(response)
+        return JsonResponse(response, safe=False)
     else:
         return HttpResponse('Invalid request method...')

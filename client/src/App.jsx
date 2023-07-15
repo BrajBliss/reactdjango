@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react';
 import SyncLoader from 'react-spinners/SyncLoader';
 
 function App() {
+	const [customer_data, setCustomerData] = useState([]);
+
 	useEffect(() => {
-		let customer_data = axios.get('https://rdjango.vercel.app/api/read');
-		console.log(customer_data);
+		axios.get('http://127.0.0.1:8000//api/read').then((res) => {
+			setCustomerData(res.data);
+		});
 	}, []);
 
-	return <div className='appContainer'>App.jsx</div>;
+	return <div className='appContainer'>{JSON.stringify(customer_data)}</div>;
 }
 
 export default App;
