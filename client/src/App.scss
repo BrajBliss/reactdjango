@@ -1,0 +1,146 @@
+.app-container {
+	height: 100vh;
+	padding-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.compose {
+		margin-bottom: 20px;
+
+		form {
+			display: flex;
+			justify-content: space-around;
+			gap: 15px;
+
+			.composer {
+				padding: 10px;
+				width: 100px;
+				border: 1px solid #343434;
+				border-radius: 8px;
+				background-color: transparent;
+				color: #ededed;
+
+				&:hover {
+					box-shadow: 0px 0px 10px #282828;
+					transition: all 0.3s ease-in-out;
+				}
+
+				&:focus {
+					outline: 2px solid #707070;
+					box-shadow: none;
+				}
+			}
+
+			button {
+				border: none;
+				padding: 5px 10px;
+				border-radius: 10px;
+				background-color: transparent;
+				color: #ededed;
+				box-shadow: 0px 0px 10px #282828;
+
+				&:hover {
+					box-shadow: 0px 0px 10px #707070;
+					transition: all 0.3s ease-in-out;
+				}
+			}
+		}
+	}
+
+	.customer-list {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		.loader-main {
+			margin: 25px;
+		}
+
+		.list-items {
+			padding: 50px;
+			width: 100%;
+
+			.list-item {
+				.data {
+					display: flex;
+					gap: 15px;
+					padding: 10px;
+					justify-content: space-between;
+
+					.btn {
+						display: flex;
+						gap: 5px;
+
+						button {
+							border: none;
+							padding: 5px 10px;
+							border-radius: 10px;
+							background-color: transparent;
+							color: #ededed;
+							box-shadow: 0px 0px 10px #282828;
+
+							&:hover {
+								box-shadow: 0px 0px 10px #707070;
+								transition: all 0.3s ease-in-out;
+							}
+						}
+					}
+				}
+			}
+
+			// Apply styles for the editing section
+			.editing {
+				.composer {
+					// Use the same styles as the form inputs
+					padding: 10px;
+					width: 100px;
+					border: 1px solid #343434;
+					border-radius: 8px;
+					background-color: transparent;
+					color: #ededed;
+
+					&:hover {
+						box-shadow: 0px 0px 10px #282828;
+						transition: all 0.3s ease-in-out;
+					}
+
+					&:focus {
+						outline: 2px solid #707070;
+						box-shadow: none;
+					}
+				}
+
+				.save {
+					// Use the same styles as the form submit button
+					border: none;
+					padding: 5px 10px;
+					border-radius: 10px;
+					background-color: transparent;
+					color: #ededed;
+					box-shadow: 0px 0px 10px #282828;
+
+					&:hover {
+						box-shadow: 0px 0px 10px #707070;
+						transition: all 0.3s ease-in-out;
+					}
+				}
+
+				.discard {
+					// Use the same styles as the delete button
+					border: none;
+					padding: 5px 10px;
+					border-radius: 10px;
+					background-color: transparent;
+					color: #ededed;
+					box-shadow: 0px 0px 10px #282828;
+
+					&:hover {
+						box-shadow: 0px 0px 10px #707070;
+						transition: all 0.3s ease-in-out;
+					}
+				}
+			}
+		}
+	}
+}

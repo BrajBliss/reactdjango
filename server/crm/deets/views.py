@@ -34,10 +34,10 @@ def add(request):
             try:
                 EmailValidator()(email)
             except ValidationError:
-                return HttpResponse('Invalid email...')
+                return JsonResponse({'message': 'Invalid email...'})
         response = supabase.table('crm').insert(data).execute()
         messages.success(request, 'Add successful...')
-        return JsonResponse(response, safe=False)
+        return JsonResponse({'message': 'Add successful...'})
     else:
         return HttpResponse('Invalid request method...')
 
@@ -53,7 +53,7 @@ def update(request, id):
                 return HttpResponse('Invalid email...')
         response = supabase.table('crm').update(data).eq('id', id).execute()
         messages.success(request, 'Update successful...')
-        return JsonResponse(response, safe=False)
+        return JsonResponse({'message': 'Update successful...'})
     else:
         return HttpResponse('Invalid request method...')
 
@@ -62,6 +62,6 @@ def delete(request, id):
     if request.method == 'DELETE':
         response = supabase.table('crm').delete().eq('id', id).execute()
         messages.success(request, 'Delete successful...')
-        return JsonResponse(response, safe=False)
+        return JsonResponse({'message': 'Delete successful...'})
     else:
         return HttpResponse('Invalid request method...')
