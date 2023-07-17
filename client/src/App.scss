@@ -7,6 +7,7 @@
 
 	.compose {
 		margin-bottom: 20px;
+		width: 80%;
 
 		form {
 			display: flex;
@@ -39,6 +40,7 @@
 				background-color: transparent;
 				color: #ededed;
 				box-shadow: 0px 0px 10px #282828;
+				cursor: pointer;
 
 				&:hover {
 					box-shadow: 0px 0px 10px #707070;
@@ -49,7 +51,7 @@
 	}
 
 	.customer-list {
-		width: 100%;
+		width: 80%;
 		display: flex;
 		justify-content: center;
 
@@ -142,5 +144,24 @@
 				}
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.compose {
+		width: 100% !important;
+
+		form {
+			flex-direction: column;
+			align-items: center;
+
+			.composer {
+				width: 50% !important;
+			}
+		}
+	}
+
+	.customer-list {
+		width: 100% !important;
 	}
 }
