@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'deets',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'crm.urls'
@@ -149,23 +147,3 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # cors
-CORS_ORIGIN_ALLOW_ALL = True
-
-# Allow credentials (cookies, authentication headers)
-CORS_ALLOW_CREDENTIALS = True
-
-# Specify allowed HTTP methods
-CORS_ALLOWED_METHODS = [
-    'GET',
-    'POST',
-    'PUT',
-    'DELETE',
-    # Other allowed methods...
-]
-
-# Specify allowed HTTP headers
-CORS_ALLOWED_HEADERS = [
-    'Authorization',
-    'Content-Type',
-    # Other allowed headers...
-]
