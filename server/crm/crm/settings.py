@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'deets',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'crm.urls'
@@ -149,9 +147,3 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # cors
-CORS_ORIGIN_WHITELIST = [
-    'https://reactdjango-fncb.vercel.app',
-    # Other origins...
-]
-
-CORS_ALLOW_CREDENTIALS = True
